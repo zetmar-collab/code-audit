@@ -14,7 +14,7 @@ Analizuje aplikację lub wskazaną część projektu, znajduje błędy i ryzyka 
 - Proponuje 5–10 usprawnień aplikacji z priorytetem i zakresem zmian.
 - Układa plan działania: krytyczne poprawki, testy, refaktoryzacja i rozwój.
 
-Domyślnie wykonuje przegląd bez modyfikowania kodu. Na wyraźną prośbę o naprawę wdraża poprawki stopniowo i uruchamia dostępne testy, lint oraz sprawdzanie typów. Migracje bazy danych i usuwanie plików wymagają potwierdzenia zgodnie z instrukcją skilla.
+Domyślnie wykonuje przegląd bez modyfikowania kodu. Można zawęzić audyt do wskazanego modułu lub obszaru. Testy, lintery i type checker uruchamia tylko w zaufanym projekcie, a w raporcie zaznacza, czego nie uruchomił. Na wyraźną prośbę o naprawę wdraża poprawki stopniowo i weryfikuje je po każdej zmianie. Migracje bazy danych, usuwanie plików i commity wymagają potwierdzenia zgodnie z instrukcją skilla.
 
 To zestaw instrukcji dla agenta AI, a nie samodzielny skaner. Wyniki zależą od dostępnego kodu, modelu, uprawnień i możliwości uruchomienia narzędzi projektu. Skill rozróżnia potwierdzone błędy i hipotezy wymagające weryfikacji.
 
@@ -109,8 +109,8 @@ W PowerShell użyj ścieżki w cudzysłowie, np. `git -C "$HOME/.agents/skills/c
 ## Jak wygląda raport
 
 1. **Podsumowanie** — przeznaczenie aplikacji, stan kodu i największe ryzyka.
-2. **Błędy krytyczne** — ważność, plik i linia, problem, wpływ i proponowana poprawka.
-3. **Bezpieczeństwo** — podatności i braki w zabezpieczeniach.
+2. **Błędy i problemy poprawności** — ważność, pewność (potwierdzony / hipoteza), plik i linia, problem, wpływ i proponowana poprawka.
+3. **Bezpieczeństwo** — podatności i braki w zabezpieczeniach, w tym samym formacie co błędy.
 4. **Wydajność i jakość** — wąskie gardła i miejsca do refaktoryzacji.
 5. **Brakujące testy** — najważniejsze scenariusze do pokrycia.
 6. **Propozycje funkcji** — problem użytkownika, działanie, priorytet i zakres zmian.
